@@ -77,7 +77,7 @@
     NSLog(@"Button pressed: %@", sender.titleLabel.text);
     
     if ([sender.titleLabel.text isEqualToString:@"RESET"]) {
-        self.view.backgroundColor = [UIColor blackColor];
+        self.view.backgroundColor = [self.colorRegulator resetColor];
     }
     
     if ([sender.titleLabel.text isEqualToString:@"+ red"]) {

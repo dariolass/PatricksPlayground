@@ -72,4 +72,14 @@
     return theColor;
 }
 
+- (UIColor*)resetColor
+{
+    self.valueRed = 0;
+    self.valueGreen = 0;
+    self.valueBlue = 0;
+    
+    UIColor *theColor = [UIColor colorWithRed:self.valueRed green:self.valueGreen blue:self.valueBlue alpha:1];
+    return theColor;
+}
+
 @end

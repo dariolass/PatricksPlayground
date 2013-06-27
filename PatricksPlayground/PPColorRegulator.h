@@ -17,5 +17,6 @@
 - (UIColor*)colorWithLessRed;
 - (UIColor*)colorWithLessGreen;
 - (UIColor*)colorWithLessBlue;
+- (UIColor*)resetColor;
 
 @end
