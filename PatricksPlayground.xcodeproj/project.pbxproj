@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033231D0177C2F1700F46DCA /* PPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033231CF177C2F1700F46DCA /* PPViewController.m */; };
 		A30FA66B170821770022C5D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30FA66A170821770022C5D2 /* UIKit.framework */; };
 		A30FA66D170821770022C5D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30FA66C170821770022C5D2 /* Foundation.framework */; };
 		A30FA66F170821770022C5D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30FA66E170821770022C5D2 /* CoreGraphics.framework */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		033231CE177C2F1700F46DCA /* PPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPViewController.h; sourceTree = "<group>"; };
+		033231CF177C2F1700F46DCA /* PPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPViewController.m; sourceTree = "<group>"; };
 		A30FA667170821770022C5D2 /* PatricksPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatricksPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30FA66A170821770022C5D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A30FA66C170821770022C5D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,6 +83,8 @@
 			children = (
 				A30FA679170821770022C5D2 /* PPAppDelegate.h */,
 				A30FA67A170821770022C5D2 /* PPAppDelegate.m */,
+				033231CE177C2F1700F46DCA /* PPViewController.h */,
+				033231CF177C2F1700F46DCA /* PPViewController.m */,
 				A30FA671170821770022C5D2 /* Supporting Files */,
 			);
 			path = PatricksPlayground;
@@ -167,6 +172,7 @@
 			files = (
 				A30FA677170821770022C5D2 /* main.m in Sources */,
 				A30FA67B170821770022C5D2 /* PPAppDelegate.m in Sources */,
+				033231D0177C2F1700F46DCA /* PPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +287,7 @@
 				A30FA686170821770022C5D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

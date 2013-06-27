@@ -7,17 +7,20 @@
 //
 
 #import "PPAppDelegate.h"
+#import "PPViewController.h"
 
 @implementation PPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Snap crackle paop
-    // really important comment
-    self.window.backgroundColor = [UIColor whiteColor];
+    PPViewController *viewController = [[PPViewController alloc] init];
+    self.window.rootViewController = viewController;
+    self.window.backgroundColor = [UIColor grayColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+
 
 @end
