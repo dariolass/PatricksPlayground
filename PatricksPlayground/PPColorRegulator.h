@@ -14,4 +14,8 @@
 - (UIColor*)colorWithMoreGreen;
 - (UIColor*)colorWithMoreBlue;
 
+- (UIColor*)colorWithLessRed;
+- (UIColor*)colorWithLessGreen;
+- (UIColor*)colorWithLessBlue;
+
 @end

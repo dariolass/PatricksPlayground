@@ -16,7 +16,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     PPViewController *viewController = [[PPViewController alloc] init];
     self.window.rootViewController = viewController;
-    self.window.backgroundColor = [UIColor grayColor];
+    self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
