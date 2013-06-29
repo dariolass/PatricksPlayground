@@ -26,7 +26,7 @@
 {
     self.colorRegulator = [[PPColorRegulator alloc] init];
     
-    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
     CGRect rectForButton1 = CGRectMake(60, 205, 200, 50);
     
