@@ -18,6 +18,8 @@
 
 @implementation PPColorRegulator
 
+//We could actually delete this class
+
 - (UIColor*)colorWithMoreRed
 {
     if (self.valueRed < 1){
