@@ -12,8 +12,11 @@
 @interface PPViewController ()
 
 - (void)buttonPressed:(UIButton*)sender;
-
+- (void)sliderValueChanged:(UISlider*)sender;
+ 
 @property (strong, nonatomic) PPColorRegulator *colorRegulator;
+@property (nonatomic, copy) NSString *Label;
+@property (nonatomic) float *value;
 
 @end
 
@@ -23,76 +26,74 @@
 {
     self.colorRegulator = [[PPColorRegulator alloc] init];
     
-    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIButton *button3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIButton *button4 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIButton *button5 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIButton *button6 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIButton *button7 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
-    CGRect rectForButton1 = CGRectMake(15,  15, 90, 40);
-    CGRect rectForButton2 = CGRectMake(115, 15, 90, 40);
-    CGRect rectForButton3 = CGRectMake(215, 15, 90, 40);
-    CGRect rectForButton4 = CGRectMake(15,  405, 90, 40);
-    CGRect rectForButton5 = CGRectMake(115, 405, 90, 40);
-    CGRect rectForButton6 = CGRectMake(215, 405, 90, 40);
-    CGRect rectForButton7 = CGRectMake(60, 205, 200, 50);
+    CGRect rectForButton1 = CGRectMake(60, 205, 200, 50);
     
     [button1 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
-    [button2 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
-    [button3 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
-    [button4 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
-    [button5 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
-    [button6 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
-    [button7 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
     
     button1.frame = rectForButton1;
-    button2.frame = rectForButton2;
-    button3.frame = rectForButton3;
-    button4.frame = rectForButton4;
-    button5.frame = rectForButton5;
-    button6.frame = rectForButton6;
-    button7.frame = rectForButton7;
     
-    [button1 setTitle:@"+ red" forState:UIControlStateNormal];
-    [button2 setTitle:@"+ green" forState:UIControlStateNormal];
-    [button3 setTitle:@"+ blue" forState:UIControlStateNormal];
-    [button4 setTitle:@"- red" forState:UIControlStateNormal];
-    [button5 setTitle:@"- green" forState:UIControlStateNormal];
-    [button6 setTitle:@"- blue" forState:UIControlStateNormal];
-    [button7 setTitle:@"RESET" forState:UIControlStateNormal];
-
+    [button1 setTitle:@"RESET" forState:UIControlStateNormal];
+    
     [self.view addSubview:button1];
-    [self.view addSubview:button2];
-    [self.view addSubview:button3];
-    [self.view addSubview:button4];
-    [self.view addSubview:button5];
-    [self.view addSubview:button6];
-    [self.view addSubview:button7];
+    
+    
+    UISlider *slider1 = [[UISlider alloc] init];
+    UISlider *slider2 = [[UISlider alloc] init];
+    UISlider *slider3 = [[UISlider alloc] init];
+    
+    UILabel *sliderLabel1 = [[UILabel alloc] init];
+    UILabel *sliderLabel2 = [[UILabel alloc] init];
+    UILabel *sliderLabel3 = [[UILabel alloc] init];
+    
+    CGRect rectForSlider1 = CGRectMake(15,  15, 90, 40);
+    CGRect rectForSlider2 = CGRectMake(115, 15, 90, 40);
+    CGRect rectForSlider3 = CGRectMake(215, 15, 90, 40);
+    
+    CGRect rectForsliderLabel1 = CGRectMake(20, 60, 60, 30);
+    CGRect rectForsliderLabel2 = CGRectMake(120, 60, 60, 30);
+    CGRect rectForsliderLabel3 = CGRectMake(220, 60, 60, 30);
+    
+    
+    [slider1 addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [slider2 addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [slider3 addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    slider1.frame = rectForSlider1;
+    slider2.frame = rectForSlider2;
+    slider3.frame = rectForSlider3;
+    
+    sliderLabel1.frame = rectForsliderLabel1;
+    sliderLabel2.frame = rectForsliderLabel2;
+    sliderLabel3.frame = rectForsliderLabel3;
+
+    [sliderLabel1 setText:@"red"];
+    [sliderLabel2 setText:@"green"];
+    [sliderLabel3 setText:@"blue"];
+    
+    [self.view addSubview:slider1];
+    [self.view addSubview:slider2];
+    [self.view addSubview:slider3];
+    
+    [self.view addSubview:sliderLabel1];
+    [self.view addSubview:sliderLabel2];
+    [self.view addSubview:sliderLabel3];
 }
 
-- (void)buttonPressed:(UIButton *)sender
+-(void)buttonPressed:(UIButton *)sender
 {
-    NSLog(@"Button pressed: %@", sender.titleLabel.text);
+    NSLog(@"reset");
     
     if ([sender.titleLabel.text isEqualToString:@"RESET"]) {
         self.view.backgroundColor = [self.colorRegulator resetColor];
     }
+}
+
+- (void)sliderValueChanged:(UISlider *)sender
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     
-    if ([sender.titleLabel.text isEqualToString:@"+ red"]) {
-        self.view.backgroundColor = [self.colorRegulator colorWithMoreRed];
-    } else if ([sender.titleLabel.text isEqualToString:@"+ green"]) {
-        self.view.backgroundColor = [self.colorRegulator colorWithMoreGreen];
-    } else if ([sender.titleLabel.text isEqualToString:@"+ blue"]) {
-        self.view.backgroundColor = [self.colorRegulator colorWithMoreBlue];
-    }    if ([sender.titleLabel.text isEqualToString:@"- red"]) {
-        self.view.backgroundColor = [self.colorRegulator colorWithLessRed];
-    } else if ([sender.titleLabel.text isEqualToString:@"- green"]) {
-        self.view.backgroundColor = [self.colorRegulator colorWithLessGreen];
-    } else if ([sender.titleLabel.text isEqualToString:@"- blue"]) {
-        self.view.backgroundColor = [self.colorRegulator colorWithLessBlue];
-    }
 }
 
 @end
