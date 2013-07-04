@@ -17,3 +17,4 @@ DerivedData
 *.hmap
 PatricksPlayground/PatricksPlayground.xcodeproj/project.xcworkspace/xcuserdata/Dario.xcuserdatad
 ~/UserInterfaceState.xcuserstate
+.DS_Store
